@@ -16,5 +16,5 @@ public interface EmpService {
 
 	public Optional<Employee> findById(Long id);
 
-	public void delete(Employee employee);
+	public Optional<Employee> delete(Employee employee);
 }

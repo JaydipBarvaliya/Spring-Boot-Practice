@@ -3,6 +3,7 @@ package com.example.demo.Controllers;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -43,12 +44,12 @@ public class EmpController {
 	public String emp(){
 		return "EMPLOYEE";
 	}
-	
-	
+
 	@GetMapping("/employees")
 	public ResponseEntity<String> getAllEmployees(){
-		
-		
+
+
+
 		List<Employee> employees = this.empService.getAllEmployees();		
 		
 		return new ResponseEntity<String>("Your total employees are " + employees.size() + "  "+ Role.EMPLOYEE + "  ", HttpStatus.BAD_REQUEST);
@@ -76,8 +77,7 @@ public class EmpController {
 	@GetMapping("/employees/{id}")
 	public Employee getEmployeeById(@PathVariable Long id) {
 		
-		return this.empService.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id :" + id));
+		return this.empService.findById(id).orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id :" + id));
  	}
 	
 	
