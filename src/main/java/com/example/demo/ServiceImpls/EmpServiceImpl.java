@@ -35,9 +35,6 @@ public class EmpServiceImpl implements EmpService {
 	@Override
 	public Optional<Employee> findById(Long id) {
 		return employeeRepository.findById(id);
-
-
-
 	}
 
 	@Override
