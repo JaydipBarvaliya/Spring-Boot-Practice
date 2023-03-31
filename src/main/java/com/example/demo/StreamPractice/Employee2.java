@@ -58,5 +58,39 @@ public class Employee2 {
                 ", salary=" + salary +
                 '}';
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public static Employee1 emp2To1Converter(Employee2 employee2) {
+        return new Employee1(101, employee2.getName(), employee2.getId(), "active", employee2.getId());
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
