@@ -1,7 +1,7 @@
 package com.example.demo.StreamPractice;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainStreamClass {
 
@@ -10,13 +10,13 @@ public class MainStreamClass {
 
         List<Employee1> empList = new ArrayList<>();
 
-        empList.add(new Employee1(101, "Jaydip", 101, "active", 2000));
-        empList.add(new Employee1(102, "John", 101, "active", 5000));
-        empList.add(new Employee1(103, "James", 102, "inactive", 6000));
-        empList.add(new Employee1(104, "Harry", 102, "inactive", 4000));
-        empList.add(new Employee1(105, "Hanz", 103, "active", 3500));
-        empList.add(new Employee1(106, "Bond", 103, "inactive", 3500));
-        empList.add(new Employee1(107, "Michal", 104, "active", 3500));
+//        empList.add(new Employee1(101, "Jaydip", 101, "active", 2000));
+//        empList.add(new Employee1(102, "John", 101, "active", 5000));
+//        empList.add(new Employee1(103, "James", 102, "inactive", 6000));
+//        empList.add(new Employee1(104, "Harry", 102, "inactive", 4000));
+//        empList.add(new Employee1(105, "Hanz", 103, "active", 3500));
+//        empList.add(new Employee1(106, "Bond", 103, "inactive", 3500));
+//        empList.add(new Employee1(107, "Michal", 104, "active", 3500));
 
 
 //        Print employee details based on department
@@ -75,7 +75,7 @@ public class MainStreamClass {
 
 
 //        Sum of all elements
-//        Integer sumResult = Stream.of(1,2,10,3,4,5,6).reduce(0, (a,b) -> a+b); //Best way us ==> reduce(0, Integer::sum);
+//        Integer sumResult = Stream.of(1,2,10,3,4,5,6).reduce(0, (a, b) -> a+b); //Best way us ==> reduce(0, Integer::sum);
 //        System.out.println(sumResult);
 
 //        Max of all elements
@@ -90,13 +90,13 @@ public class MainStreamClass {
 
 
 
-        List<Employee2> empList2 = new ArrayList<>();
-
-        empList2.add(new Employee2(101,"john","A",60000));
-        empList2.add(new Employee2(109,"peter","B",30000));
-        empList2.add( new Employee2(102,"mak","A",80000));
-        empList2.add(new Employee2(103,"kim","A",90000));
-        empList2.add(new Employee2(104,"json","C",15000));
+//        List<Employee2> empList2 = new ArrayList<>();
+//
+//        empList2.add(new Employee2(101,"john","A",60000));
+//        empList2.add(new Employee2(109,"peter","B",30000));
+//        empList2.add( new Employee2(102,"mak","A",80000));
+//        empList2.add(new Employee2(103,"kim","A",90000));
+//        empList2.add(new Employee2(104,"json","C",15000));
 
 
 
@@ -161,6 +161,58 @@ public class MainStreamClass {
 //        List<Integer> integerList = Arrays.asList(1,2,3,4,5,2,3,4,5);
 //        Set<Integer> duplicates = integerList.stream().filter(ele -> Collections.frequency(integerList, ele) > 1).collect(Collectors.toSet());
 //        System.out.println(duplicates);
+
+
+//      Find Max & Min number in given list
+//        List<Integer> integerList = Arrays.asList(-1,0,1,2,3,4,5,2,3,4,5);
+//        System.out.println(integerList.stream().max(Comparator.comparing(Integer::valueOf)).get());
+//        System.out.println(integerList.stream().min(Comparator.comparing(Integer::valueOf)).get());
+
+//      Find Max & Min using lambda function instead of method references
+//        System.out.println(integerList.stream().min((e1,e2) -> e2-e1).get());
+//        System.out.println(integerList.stream().min((e1,e2) -> e1-e2).get());
+
+//      Find Max & Min using Reduce method of stream
+//        System.out.println( integerList.stream().reduce(1, (a, b) -> a > b ? a : b));
+//        System.out.println( integerList.stream().reduce(1, (a, b) -> a < b ? a : b));
+
+
+//        Sort the given list using stream
+//        List<Integer> integerList = Arrays.asList(50,40,30,20,-1,0,1,2,3,4,5,2,3,4,5);
+//        ASC
+//        integerList.stream().sorted().forEach(num -> System.out.println(num));
+//        DES
+//        integerList.stream().sorted((a,b) -> a>b?a:b).forEach(num -> System.out.println(num));
+//        integerList.stream().sorted(Collections.reverseOrder()).forEach(num -> System.out.println(num));
+
+
+
+
+//        Get/ignore first 5 numbers using Limit & Skip in Streams
+//        List<Integer> integerList = Arrays.asList(1,2,3,4,5,6,7,8,9);
+//        Get first 5
+//        integerList.stream().limit(5).forEach(System.out::println);
+//        Ignore first 5
+//        integerList.stream().skip(5).forEach(System.out::println);
+
+
+//         Get Second Highest/Lowest Number using Streams
+//          List<Integer> integerList = Arrays.asList(2,1,2,6,4,5,10,7,8,9,10);
+//        Second Lowest
+//          integerList.stream().sorted().distinct().limit(2).skip(1).forEach(System.out::println);
+//        Second Highest
+//          integerList.stream().sorted(Collections.reverseOrder()).distinct().limit(2).skip(1).forEach(System.out::println);
+
+
+//         Lambda with/without curly bracket
+//        List<Integer> integerList = Arrays.asList(2,1,2,6,4,5,10,7,8,9,10);
+//        integerList.forEach(num -> System.out.println("SINGLE STATEMENT without { Brackets"));
+//        integerList.forEach(num -> {
+//            System.out.println("MULTIPLE STATEMENT with { Brackets");
+//            System.out.println("MULTIPLE STATEMENT with { Brackets");
+//        });
+
+
 
 
 
