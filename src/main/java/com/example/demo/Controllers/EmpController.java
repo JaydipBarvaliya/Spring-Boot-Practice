@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.awt.print.Book;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,8 +18,6 @@ import java.util.Map;
 @RequestMapping("/api/v1/")
 //@Scope("prototype")
 public class EmpController {
-
-	
 
 	EmpService empService;
 
@@ -41,9 +40,7 @@ public class EmpController {
 	@GetMapping("/employees")
 	public ResponseEntity<String> getAllEmployees(){
 
-
-
-		List<Employee> employees = this.empService.getAllEmployees();		
+		List<Employee> employees = this.empService.getAllEmployees();
 		
 		return new ResponseEntity<String>("Your total employees are " + employees.size() + "  "+ Role.EMPLOYEE + "  ", HttpStatus.BAD_REQUEST);
 	}		
